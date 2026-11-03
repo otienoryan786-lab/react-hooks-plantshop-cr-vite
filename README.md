@@ -1,93 +1,64 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy
 
-## Demo
+## Description
 
-Use this gif as an example of how the app should work.
+Plantsy is the admin side of a plant store, built with React and Vite. It
+connects to a `json-server` backend to display plants, add new ones, mark them
+as sold out, and search by name.
 
 ![Demo GIF](./demo.gif)
 
-## Instructions
+<!-- Replace with a screenshot of your finished app: ![Plantsy screenshot](./screenshots/plantsy.png) -->
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Features
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+- Loads and displays all plants when the app starts (`fetch` inside `useEffect`)
+- Adds a new plant through the form with a `POST` request, and shows it immediately
+- Toggles a plant between "In Stock" and "Out of Stock" (not saved to the backend)
+- Filters plants by name as you type; clearing the search shows all plants again
 
-## Setup
+## Tech Stack
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+React 18, Vite, json-server, Vitest and React Testing Library.
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+## Installation
 
-## Endpoints
+1. Fork and clone this repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the backend (runs on port 6001):
+   ```bash
+   npm run server
+   ```
+4. In a second terminal, start the React app:
+   ```bash
+   npm run dev
+   ```
 
-The base URL for your backend is: `http://localhost:6001`
+Check that `http://localhost:6001/plants` returns data in your browser before
+using the app.
 
-## Deliverables
+## Usage
 
-As a user:
+- **Add a plant:** fill in the name, image URL and price, then click *Add Plant*.
+- **Mark sold out:** click the *In Stock* button on a plant card.
+- **Search:** type in the search bar to filter plants by name.
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+## API Endpoints
 
-### Endpoints for Core Deliverables
+| Method | Endpoint  | Purpose                |
+| ------ | --------- | ---------------------- |
+| GET    | `/plants` | Get all plants         |
+| POST   | `/plants` | Create a new plant     |
 
-#### GET /plants
+## Testing
 
-Example Response:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
-]
+```bash
+npm run test
 ```
 
-#### POST `/plants`
+## Author
 
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
-```
-
-Request Object:
-
-```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
-```
-
-Example Response:
-
-```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
-```
+Ryan Otieno
